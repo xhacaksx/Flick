@@ -1,3 +1,4 @@
+<?php include 'config.php';?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -40,7 +41,7 @@
 				<span class="icon-next"></span>
 			</a>
 		</header>
-
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -49,22 +50,27 @@
 				<div class="col-xs-12">
 					<h5 class="center-align text-uppercase lead">Coming Soon</h5>
 				</div>
+
+				<?php
+		$sql="select * from  upcoming2 ";
+			$qry2=mysqli_query($conn,$sql);
+			while($m=mysqli_fetch_array($qry2))
+                   {
+					   ?>
 				<div class="col-md-3 col-sm-6">
-						<img class="img-responsive img-portfolio img-hover" src="img/cs-adhm.jpg" alt="">
+				<a href="<?php echo $m['link'];?>">
+						<img class="img-responsive img-hover poster" src="<?php echo $m['img'];?>" alt=""/>
+					</a>
 				</div>
-				<div class="col-md-3 col-sm-6">
-						<img class="img-responsive img-portfolio img-hover" src="img/cs-rockon2.jpg" alt="">
-				</div>
-				<div class="col-md-3 col-sm-6">
-						<img class="img-responsive img-portfolio img-hover" src="img/cs-strange.png" alt="">
-				</div>
-				<div class="col-md-3 col-sm-6">
-						<img class="img-responsive img-portfolio img-hover" src="img/cs-fbawtft.jpg" alt="">
-				</div>
+				
+				
+				<?php	
+		}
+		?>
 			</div>
 			<br><br><br>
 		</div>
-
+		
 		<div class="bottom">
 			<!-- Call to Action Section -->
 			<div class="pre-footer small">
